@@ -6,6 +6,8 @@ import com.davacom.thymeleafappjdbc.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -15,4 +17,20 @@ public class UserService {
         User user = userRepository.findByEmailAndPassword(email, password);
         return user;
     }
+
+
+    public User create(User userDto) {
+        User user = User.builder()
+                .fullName(userDto.getFullName())
+                .email(userDto.getEmail())
+                .password(userDto.getPassword())
+                .build();
+        return userRepository.save(user);
+    }
+
+
+     public List<User> getAllUsers () {
+        return userRepository.findAll();
+    }
+
 }
