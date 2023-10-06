@@ -1,6 +1,7 @@
 package com.davacom.thymeleafappjdbc.models;
 
 import lombok.*;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 

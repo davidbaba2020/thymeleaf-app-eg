@@ -46,7 +46,6 @@ public class UserController {
     //Carry out the login logic
     @PostMapping("/login")
     public String login(@ModelAttribute("user") User user ) {
-
         User oauthUser = userService.login(user.getEmail(), user.getPassword());
 
         System.out.print(oauthUser);
